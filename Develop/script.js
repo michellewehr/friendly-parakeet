@@ -47,4 +47,14 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
+
+function tryThisFirst()  {
+  var letters = 'abcdefghijklmnopqrstuvwxyz';
+  var password = '';
+  for   (let i = 0; i < 26; i++) {
+  password += letters[Math.floor(Math.random() * 26)]
+}
+console.log(password);
+}
+tryThisFirst();
