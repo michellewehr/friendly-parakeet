@@ -43,7 +43,12 @@ function writePassword() {
   (includeNumbers) ? initialPassword += numbers: "";
   (includeSpecial) ? initialPassword += special: "";
 
-  console.log(initialPassword);
+  //generate actual password
+  var finalPassword = "";
+  for(var i = 0; i < selectedLength; i++) {
+    finalPassword += initialPassword.charAt(Math.floor(Math.random() * initialPassword.length));
+  }
+  console.log(finalPassword)
 
 }
 
