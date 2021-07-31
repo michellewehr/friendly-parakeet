@@ -28,18 +28,18 @@ function writePassword() {
   
 
   //password generator- if lowercase
-  if(includeLowerCase) {
-    var lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
-    var password = "";
-    for(let i = 0; i < selectedLength; i++) {
-      password += lowerCaseLetters[Math.floor(Math.random) * selectedLength];
-      console.log(password);
-    }
-  }
+  // TODO --> fix this!!!! if(includeLowerCase) {
+  //   var lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+  //   var password = "";
+  //   for(let i = 0; i < selectedLength; i++) {
+  //     password += lowerCaseLetters[Math.floor(Math.random() * selectedLength)];
+  //     console.log(password);
+  //   }
+  // }
 
 
 
-  // var password = generatePassword();
+  // var password = generatePassword() {};
   // var passwordText = document.querySelector("#password");
 
   // passwordText.value = password;
