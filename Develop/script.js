@@ -1,17 +1,18 @@
 // Assignment code here
-
+// list options for each selection 
+var lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+var upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var numbers = '0123456789';
+var special = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 //get references to #password text element
 var passwordText = document.querySelector("#password");
 
-// var password = generatePassword();
-
-
-// Write password to the #password input
-function writePassword() {
-  //prompt responses
+//generatePassword function 
+function generatePassword() {
+//prompt responses
   var selectedLength = Number(window.prompt("How many characters would you like your password to be? Enter a number between 8 and 128."));
   //if user doesn't enter correct number
   while(selectedLength < 8 || selectedLength > 128) {
@@ -30,37 +31,26 @@ function writePassword() {
     includeNumbers = window.confirm("Would you like to include NUMERIC characters in your password?");
     includeSpecial = window.confirm("Would you like to include SPECIAL characters in your password?");
   }
-
-// list options for each selection 
-  var lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
-  var upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var numbers = '0123456789';
-  var special = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 // initial password if characters were included
   var initialPassword = "";
   (includeLowerCase) ? initialPassword += lowerCaseLetters: ""; 
   (includeUpperCase) ? initialPassword += upperCaseLetters: "";
   (includeNumbers) ? initialPassword += numbers: "";
   (includeSpecial) ? initialPassword += special: "";
+   //generate actual password
+   var finalPassword = "";
+   for(var i = 0; i < selectedLength; i++) {
+     finalPassword += initialPassword.charAt(Math.floor(Math.random() * initialPassword.length));
+    }
+    console.log(finalPassword);
+    return finalPassword;
+}
 
-  //generate actual password
-  var finalPassword = "";
-  for(var i = 0; i < selectedLength; i++) {
-    finalPassword += initialPassword.charAt(Math.floor(Math.random() * initialPassword.length));
-  }
-  console.log(finalPassword)
-
+// Write password to the #password input
+function writePassword() {
+    var password = generatePassword();
+    passwordText.innerHTML = password;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// function tryThisFirst()  {
-//   var letters = 'abcdefghijklmnopqrstuvwxyz';
-//   var password = '';
-//   for   (let i = 0; i < 26; i++) {
-//   password += letters[Math.floor(Math.random() * 26)]
-// }
-// console.log(password);
-// }
-// tryThisFirst();
