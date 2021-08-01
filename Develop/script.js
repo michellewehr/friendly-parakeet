@@ -42,8 +42,7 @@ function generatePassword() {
    for(var i = 0; i < selectedLength; i++) {
      finalPassword += initialPassword.charAt(Math.floor(Math.random() * initialPassword.length));
     }
-    console.log(finalPassword);
-    return finalPassword;
+        return finalPassword;
 }
 
 // Write password to the #password input
